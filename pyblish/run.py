@@ -7,14 +7,6 @@ from pyblish.fetcher import Fetcher
 from pyblish.parser import Parser
 
 
-async def producer(queue, id):
-    for i in range(5):
-        val = random.randint(1, 10)
-        await asyncio.sleep(1)
-        await queue.put(val)
-        print('{} put a val: {}'.format(id, val))
-
-
 async def main():
     url_to_parse = asyncio.Queue()
     html_documents = asyncio.Queue()
