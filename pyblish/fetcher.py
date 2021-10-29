@@ -12,7 +12,7 @@ class Fetcher:
         return [cls._fetch(i, urls, parser) for i in range(4)]
 
     async def _fetch(worker_nb, urls, parser, **kwargs):
-        with ClientSession() as session:
+        async with ClientSession() as session:
             while not urls.empty():
                 url = urls.get_nowait()
                 logger.info(f"worker_{worker_nb} got {url}")
