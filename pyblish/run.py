@@ -23,7 +23,7 @@ def main():
     url_to_parse.put_nowait(args.root_url)
     
     parser = Parser(url_to_parse)
-    fetchers = Fetcher.factory(url_to_parse)
+    fetchers = Fetcher.factory(url_to_parse, parser)
 
     loop = asyncio.get_event_loop()
     loop.run_until_complete(asyncio.wait(fetchers))

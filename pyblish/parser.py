@@ -13,7 +13,7 @@ class Parser:
         return [cls._consume(urls, documents)
                  for _ in range(5)]
 
-    async def parse(urls, documents): 
+    async def parse(html_document): 
         """
         Parse html, identify internal, external link and semantically meaningfull entities
         """
