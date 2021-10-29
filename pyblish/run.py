@@ -22,7 +22,7 @@ def main():
     logger.info(f"Running main on {args.root_url}")
     url_to_parse.put_nowait(args.root_url)
     
-    parser = Parser(url_to_parse)
+    parser = Parser(args.root_url, url_to_parse)
     fetchers = Fetcher.factory(url_to_parse, parser)
 
     loop = asyncio.get_event_loop()
