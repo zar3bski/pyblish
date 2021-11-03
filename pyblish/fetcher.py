@@ -14,7 +14,7 @@ class Fetcher:
     async def _fetch(worker_nb, urls, parser, **kwargs):
         async with ClientSession() as session:
             while not urls.empty():
-                url = urls.get_nowait()
+                url = await urls.get()
                 logger.info(f"worker_{worker_nb} got {url}")
                 resp = await session.request(method="GET", url=url, **kwargs)
                 resp.raise_for_status()
